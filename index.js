@@ -1,13 +1,21 @@
+let firstRun = true
 function detect() {
   const tracker = new tracking.ObjectTracker('face')
-
   let pic = document.querySelector('#pic')
+  pic.crossOrigin = 'Anonymous'
 
   let faceDetect = tracking.track(pic, tracker)
   faceDetect.on('track', function(event) {
     if (event.data.length === 0) {
-      console.log('none detected')
+      document.querySelector('#status').innerHTML = 'No Faces Detected'
     } else {
+      document.querySelector('#status').innerHTML =
+        event.data.length + ' Faces Detected'
+      if (!firstRun) {
+        document.querySelector('.image-holder').innerHTML = ''
+        document.querySelector('.image-holder').appendChild(pic)
+      }
+      firstRun = false
       event.data.forEach(face => {
         let faceInfo = document.createElement('div')
         faceInfo.classList.add('faceInfo')
@@ -49,3 +57,9 @@ function detect() {
 }
 
 document.querySelector('#detect').addEventListener('click', detect)
+
+document.querySelector('form').addEventListener('submit', e => {
+  e.preventDefault()
+  pic.setAttribute('src', e.target[0].value)
+  document.querySelector('#status').innerHTML = 'Press Detect'
+})
