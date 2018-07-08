@@ -1,0 +1,15 @@
+.box {
+  background: rgba(0, 0, 0, 0);
+  border: 3px solid rebeccapurple;
+  position: absolute;
+}
+img {
+  max-width: 50vw;
+}
+.faceInfo {
+  position: absolute;
+}
+.infoRight {
+  display: flex;
+  flex-direction: column;
+}
