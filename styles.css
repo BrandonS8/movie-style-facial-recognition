@@ -1,3 +1,11 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 img {
   max-width: 80vw;
 }
@@ -7,16 +15,71 @@ img {
 }
 .box {
   background: rgba(0, 0, 0, 0);
-  border: 3px solid rebeccapurple;
+  border: 2px solid rgba(31, 100, 228, 0.5);
+  width: 25%;
+  height: 100%;
 }
 .infoRight {
   display: flex;
   flex-direction: column;
   color: white;
+  background: linear-gradient(
+    to right,
+    rgba(31, 100, 228, 0.5) 0%,
+    rgb(55, 112, 177, 1) 100%
+  );
+  padding: 2px;
+  min-width: 50%;
+  height: 100%;
+  justify-content: center;
 }
 
 .tag {
-  margin: 2px;
+  margin: 0;
   padding: 0;
   font-size: 10px;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button {
+  background: linear-gradient(
+    to right,
+    rgba(31, 100, 228, 0.5) 0%,
+    rgba(201, 201, 201, 0.5) 50%,
+    rgba(31, 100, 228, 0.5) 100%
+  );
+  padding: 5px;
+  font-size: 2vw;
+  border: 2px solid rgba(31, 100, 228, 1);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
